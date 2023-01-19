@@ -1,0 +1,39 @@
+#menu-mar{
+    margin-left: 480px;
+   }
+
+.logo{
+    color: white;
+    margin-left:20px; 
+    font-size:20px;
+}
+.background-col{
+        
+    background-color: bisque;
+}
+.button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 12px 21px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 14px 40px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+
+  .header{
+    background-color:brown ;
+    text-align: left;
+    height: 70px;
+
+}
+.footer{
+    background-color:rgb(1, 1, 1);
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+} 

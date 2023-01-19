@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BBF | Reservation Form</title>
+    <link rel="icon" type="image" href="imgs/Bakery/chocolate-chip-cookie.jpeg">
+    
+    <style>
+      *{
+            margin: 0;
+            padding: 0;  
+        }
+      .form-style{
+        text-align: center;
+        border : #120f0f solid 1px;
+        padding: 20px 20px;
+        font-family:'Times New Roman', Times, serif;
+        font-size: x-large; 
+        display: flex;
+        flex-direction: column;    
+      }
+      .font{
+        font-family: 'Times New Roman', Times, serif;
+      }
+      .header-style{
+        background-color: rgb(222, 198, 17);
+        font-family: 'Times New Roman', Times, serif;
+        
+      }
+      
+    </style>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body class="background-col">
+    
+  <div class="header">
+    <span class="logo"> <a href="index.html" style="color: white; text-decoration: none;">🍩BBF</a></span>
+    <a href="index.html" class="button" id="menu-mar">HOME</a>
+    <a href="menu.html" class="button" >MENU</a>
+    <a href="aboutUS.html" class="button">ABOUT US </a>
+    <a href="book.html" class="button">ORDER NOW </a>
+</div>
+<div style="text-align:center; padding-top: 20px; padding-bottom: 20px; color: black !important ; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman';font-size:50px ;background-color: #c9995c;" >
+  BOSTON  BAKING  FACTORY 🍽
+</div>
+        <div>            
+            <div class="form-style">
+            <form style="border: 2px black solid; padding-bottom: 20px;">
+              <u><h4 class="font">Make Reservation</h4></u>
+              <br>
+              <div>
+                  <label for="firstName">First Name : </label> 
+                  <input type="text" name="firstName" placeholder="Enter you First Name" width="25%" required> 
+                </div>
+
+                <div>
+                  <label for="firstName">Last Name : </label>
+                  <input type="text" name="lastName" placeholder="Enter you Last Name" width="25%" required>
+                </div>
+
+                <div>
+                <label for="gender">Gender: </label>
+                <input list="gender" placeholder="Enter your Gender" style="width:180px" required>
+                <datalist id="gender">
+                  <option value="Female"></option>
+                  <option value="Male"></option>
+                  <option value="Not Declared"></option>
+
+                </datalist>
+              </div>  
+                <div>
+                  <label for="mobNumber">Mobile Number: </label>
+                  <input type="tel" name="mobNumber" placeholder="Enter you Number " width="15%" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> 
+                  
+                </div>
+                
+               <div>
+                <label for="email">E-mail address : </label>
+                <input type="email" name="email"  placeholder="Enter you email address " width="15%" required>
+               </div>
+              
+               <div>
+                <label for="bookingDate">Date : </label>
+                <input type="datetime-local" name="bookingDate" placeholder="Enter you name" required>
+               </div>
+                
+               <div><label for="tableFor">Table For: </label>
+                <input type="number" name="tableFor" placeholder="Number of people" required>
+               </div>
+                
+                <button type="submit" onclick=tableBooking() name="button" style="color: green; border-radius: 12px; ">Book Table</button>
+                <p id="submitPage" style="text-align:center ; font-size: xx-large;"></p>
+              </form>
+            </div>
+        </div>
+    </div> 
+  </div> 
+<!--   
+  <script>
+    function tableBooking() {
+    document.getElementById("submitPage").innerHTML = "Table Booked !✅";
+} -->
+</script> 
+</body>
+
+</html>

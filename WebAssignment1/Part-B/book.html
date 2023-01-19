@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BBF | Menu</title>
+        <link rel="icon" type="image" href="imgs/Bakery/chocolate-chip-cookie.jpeg">
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+
+            .header{
+            background-color:brown ;
+            text-align: left;
+            height: 80px;
+
+            } 
+            .pos{
+            position:absolute;
+            } 
+
+            table, th, td {
+            border:1px solid black;
+            }
+            th,td{
+                padding: 10px
+            }
+        </style>
+
+        <link rel="stylesheet" href="app.css">
+        
+    </head>
+    <body class="background-col">
+
+        <script>
+            function orderPlace() {
+            document.getElementById("submitPage").innerHTML = "Order Placed!✅";
+        }
+        </script>   
+<div>
+    <div class="header">
+        <span class="logo"> <a href="index.html" style="color: white; text-decoration: none;">🍩BBF</a></span>
+        <a href="index.html" class="button" id="menu-mar">HOME</a>
+        <a href="menu.html" class="button" >MENU</a>
+        <a href="aboutUS.html" class="button">ABOUT US </a>
+        <a href="form.html" class="button">BOOK A TABLE</a>
+  </div>
+  <div style="text-align:center; padding-top: 20px; padding-bottom: 20px; color: black !important ; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman';font-size:50px ;background-color: #c9995c;" >
+    BOSTON  BAKING  FACTORY 🍽
+  </div>
+    <div >
+        <h1 style="text-align:center ;">
+            MENU
+        </h1>
+   </div>
+   <div>
+        <!-- <table style="margin-left:200px">
+                <tr>
+                    <th>APPETIZER</th>
+                    <th>DESCRIPTION</th>
+                    <th>$</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr>
+                    <td>Jamaican Burger</td>
+                    <td>Grilled Chicken mixed with jamaican sauce,bacon,egg,BBQ sauce along with our famous fries</td>
+                    <td>$25</td>
+                    <td><input type="number"></td>
+                
+                </tr>
+                <tr>
+                    <td>Big Daddy Burger</td>
+                    <td>Grilled Chicken mixed with jamaican sauce,bacon,egg,BBQ sauce along with our famous fries</td>
+                    <td>$15</td> 
+                    <td><input type="number"></td>           
+                </tr>
+                <tr>
+                    <td>MAD Burger</td>
+                    <td>Grilled Chicken mixed with jamaican sauce,bacon,egg,BBQ sauce along with our famous fries</td>
+                    <td>$20</td> 
+                    <td><input type="number"></td>           
+                </tr>
+                <tr>
+                    <td>JIMMIS Burger</td>
+                    <td>Grilled Chicken mixed with jamaican sauce,bacon,egg,BBQ sauce along with our famous fries</td>
+                    <td>$20</td> 
+                    <td><input type="number"></td>           
+                </tr>
+                <tr>
+                    <td>VEGAN Burger</td>
+                    <td>Grilled Chicken mixed with jamaican sauce,bacon,egg,BBQ sauce along with our famous fries</td>
+                    <td>$20</td> 
+                    <td><input type="number"></td>           
+                </tr>
+            </table> -->
+            <table style="margin-left:200px">
+                <tr>
+                    <th>PRODUCT</th>
+                    <th>DESCRIPTION</th>
+                    <th>$</th>
+                    <th>Image</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr>
+                    <td>Scone</td>
+                    <td>(w/o nuts) currant-spelt-oat, lemon ginger,
+                        parmesan chive, and seasonal offering</td>
+                    <td>$4.35</td>
+                    <td><img src="imgs/Bakery/scone.jpeg" alt="B1" width="100%" style="height: 80px; width: 80px;"></td>
+                
+                    <td><input type="number"></td>
+                
+                </tr>
+                <tr>
+                    <td>Seasonal Poptart</td>
+                    <td>seasonal flavor of our very own homemade poptart</td>
+                    <td>$5.99</td>    
+                    <td><img src="imgs/Bakery/pop-tart.jpeg" alt="B1" width="100%" style="height: 80px; width: 80px;"></td>       
+                <td><input type="number"></td>           
+                </tr>
+                <tr>
+                    <td>Oreo Cookie</td>
+                    <td>creamy vanilla filling sandwiched between two dark chocolate cookies</td>
+                    <td>$4</td> 
+                    <td><img src="imgs/Bakery/chocolate-chip-cookie.jpeg" alt="B1" width="100%" style="height: 80px; width: 80px;"></td>   
+                <td><input type="number"></td>           
+                </tr>
+                <tr>
+                    <td>Smoked Turkey Sandwich</td>
+                    <td>cherry + cranberry chutney, sage mayo, aged cheddar, mixed greens, multigrain</td>
+                    <td>$22</td>   
+                    <td><img src="imgs/Bakery/sandwich.jpeg" alt="B1" width="100%" style="height: 80px; width: 80px;"></td>         
+                <td><input type="number"></td>           
+                </tr>
+                <tr>
+                    <td>Grilled Mushroom Melt</td>
+                    <td>smoked gouda, gruyere, caramelized onions, sherry, focaccia</td>
+                    <td>$19</td>     
+                    <td><img src="imgs/Bakery/grilled-mushroom-cheese.jpeg" alt="B1" width="100%" style="height: 80px; width: 80px;"></td>      
+                <td><input type="number"></td>           
+                </tr>
+            </table>
+            <div>
+                <button type="button" name="submitButton" style="height: 30px; width: 100px; margin-left: 720px;
+                margin-top: 10px;" onclick="orderPlace()">Submit</button>
+            </div>
+
+            <p id="submitPage" style="text-align:center ; font-size: xx-large;"></p>
+            
+            </div> 
+        </div>
+    </div>
+
+</div>
+
+    </body>
+</html>
