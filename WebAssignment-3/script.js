@@ -134,6 +134,7 @@ function deleteStudent(deleteBtn){
     var submitButton = document.querySelector('#button');
     var table01= document.getElementById("myTable");
     var cRow=  deleteBtn.parentElement.parentElement;
+    var cRowSibling = cRow.nextElementSibling;
     var chkboxes01= document.querySelectorAll('.check');
 
     var cRowindex= cRow.rowIndex;
@@ -141,6 +142,8 @@ function deleteStudent(deleteBtn){
     reqDropRow.style.display = "none";
 
     table01.deleteRow(cRow.rowIndex);
+    table01.deleteRow(cRowSibling.rowIndex);
+  
     
     if(chkboxes01.checked){
       submitButton.style.backgroundColor = 'orange';
@@ -151,6 +154,8 @@ function deleteStudent(deleteBtn){
       document.getElementById("button").disabled= true;
     }
     alert("Student deleted!!");
+
+
   }
   
 
