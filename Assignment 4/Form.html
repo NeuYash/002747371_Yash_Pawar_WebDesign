@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Feedback</title>
+	<style>
+		label {
+			float: left;
+			width: 150px;
+		}
+
+		#container {
+			width: 700px;
+			margin: auto;
+			background-color: beige;
+		}
+
+		main {
+			padding: 50px;
+		}
+
+		#hidden-Div{
+			margin-left: 150px;
+		}
+
+		#lbl_hid{
+			width: 80px;
+		}
+
+		label {
+			float: left;
+			width: 150px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="container">
+
+		<main>
+			<h2>Feeback</h2>
+			<h3>Love something? Hate something? Let us know!</h3>
+			Note : Fields marked with an asterisk(*) are mandatory
+			<br><br>
+			<form method="post" id="myForm" onsubmit="loadTable();return false">
+				<label>Title*:</label>
+				<input class="rbutton" type="radio" name="title" id="miss" value="miss" required="required" />Miss
+				<input class="rbutton" type="radio" name="title" id="mr" value="mr" required="required" />Mr.
+				<input class="rbutton" type="radio" name="title" id="mrs" value="mrs" required="required" />Mrs.
+				<br><br>
+				<label for="firstName">First Name*:</label>
+				<input type="text" name="firstName" id="firstName" onfocus="valFirstName()" onblur="blurFirstName()"
+					placeholder="First Name" required/>
+				<div id="mandatoryFirstName" style="display:none; color:red">
+					It is mandatory to enter your First Name.
+				</div>
+				<br><br>
+
+				<label for="lastName">Last Name*:</label>
+				<input type="text" name="lastName" id="lastName" onfocus="valLastName()" onblur="blurLastName()"
+					placeholder="Last Name" required/>
+				<div id="mandatoryLastName" style="display:none; color:red">
+					It is mandatory to enter your Last Name.
+				</div>
+				<br><br>
+
+				<label for="emailId">Email Id*:</label>
+				<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" required/>
+				<br><br>
+				<!-----Regex for emailid-->
+				<div id="error_emailId" style="display: none;color: red">
+					Please Enter valid emailId . EmailId you have entered is wrong
+					<br><br>
+				</div>
+
+
+				<label for="phoneNumber">Phone Number*:</label>
+				<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" required />
+				<br><br>
+				<!-----Regex for phone number-->
+				<div id="error_phoneNumber" style="display: none;color: red">
+					Please Enter valid phoneNumber. Phone Number you have entered is wrong
+					<br><br>
+				</div>
+
+				<label for="streetAddress1">Street Address 1*:</label>
+				<input type="text" name="streetAddress1" id="streetAddress1" onfocus="valStreet1()"
+					onblur="blurStreet1()" placeholder="address" required/>
+				<div id="mandatorystreetAddress1" style="display:none; color:red">
+					It is mandatory to enter your Street Adress line 1.
+				</div>
+				<br><br>
+
+				<label for="streetAddress2">Street Address 2:</label>
+				<input type="text" name="streetAddress2" id="streetAddress2" placeholder="address" />
+				<br><br>
+
+				<label for="city">City*:</label>
+				<input type="text" name="city" id="city" onfocus="valCity()" onblur="blurCity()" placeholder="city" required/>
+				<div id="mandatoryCity" style="display:none; color:red">
+					It is mandatory to enter your City
+				</div>
+				<br><br>
+
+				<label for="state">State*:</label>
+				<input type="text" name="state" id="state" onfocus="valState()" onblur="blurState()"
+					placeholder="state" required/>
+				<div id="mandatoryState" style="display:none; color:red">
+					It is mandatory to enter your State.
+				</div>
+				<br><br>
+
+				<label for="zipcode">ZipCode*:</label>
+				<input type="text" name="zipcode" id="zipcode" placeholder="xxxxx-xxxx" required/>
+				<br><br>
+				<!-----Regex for zip code-->
+				<div id="error_zipcode" style="display: none;color: red">
+					Please Enter valid ZipCode. ZipCode you have entered is wrong
+					<br><br>
+				</div>
+
+
+
+
+
+				<label for="zipcode" id="hear">How did you hear*:</label>
+				<input type='checkbox' id="facebook" name="source" value="facebook" required/>Facebook
+				<input type='checkbox' id="google" name="source" value="google"/> Google
+				<input type='checkbox' id="yelp" name="source" value="yelp"/> Yelp
+				<div id="mandatoryHear" style="display:none; color:red">
+					It is mandatory to select one
+				</div>
+				<br><br>
+
+				<label for="comments">Comments*:</label>
+				<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"
+					onfocus="valComment()" onblur="blurComment()" required></textarea>
+				<div id="mandatoryComment" style="display:none; color:red">
+					It is mandatory to enter your Comment
+				</div>
+				<br><br>
+
+				<label for="beverages">Beverages*</label>
+				<select id="beverages" style="width: 9.2rem" onchange="myFavBeverages()"  required>
+					<option name="selectoption" value="">Select one option</option>
+					<option value="Hot Chocolate" id="Hot Chocolate" name="selectoption">Hot Chocolate</option>
+					<option value="White Hot Chocolate" id="White Hot Chocolate" name="selectoption">White Hot Chocolate
+					</option>
+					<option value="Pumpkin Spice Latte" id="Pumpkin Spice Latte" name="selectoption">Pumpkin Spice Latte
+					</option>
+					<option value="Cinnamon Dolce Latte" id="Cinnamon Dolce Latte" name="selectoption">Cinnamon Dolce
+						Latte</option>
+					<option value="Caramel Macchiato" id="Caramel Macchiato" name="selectoption">Caramel Macchiato
+					</option>
+				</select>
+
+				<br><br>
+				<span id="displayedMessage"></span>
+				<hr>
+				<br>
+				<div id="hidden-Div" style="width: 130px">
+					<input type="checkbox" id="chk" onchange="textToDisplay()">
+					<label id="lbl_hid" for="chk" style="width:110px;"></label>
+					<br>
+					<br>
+					<label id="lbl_hid1" for="txt_hid"> Additional Customizations:*</label>
+					<input type="text" id="txt_hid" onfocus="valHidTxt()" onblur="blurHidTxt()">
+					<div id="mandatoryHidden" style="display:none; color:red">
+						It is mandatory to add text.
+					</div>
+				</div>
+				<br>
+
+				<br>
+				<div id="message"></div>
+				<input type="submit" id="subBtn">
+				<input type="Reset" onclick="refreshForm()">
+				<br><br>
+			</form>
+
+			<script>
+				var form = document.getElementById("myForm");
+
+				window.onload = function () {
+					document.getElementById("lbl_hid").style.display = "none";
+					document.getElementById("lbl_hid1").style.display = "none";
+					document.getElementById("chk").style.display = "none";
+					document.getElementById("txt_hid").style.display = "none";
+					
+				}
+				
+				var EmailValidation = false;
+				var PhoneValidation = false;
+				var PostalCodeValidation = false;
+
+				// regex checks variables
+				var PostalCodeRegExp = /^[0-9]{5}(?:-[0-9]{4})?$/;
+				var PhoneNumberRegExp = /\d{3}-?\d{3}-\d{4}$/;
+				var EmailRegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@northeastern.edu$/;
+
+				var emailId = document.getElementById("emailId");
+				emailId.addEventListener("input", validate);
+
+				var phoneNumber = document.getElementById("phoneNumber");
+				phoneNumber.addEventListener("input", validate);
+
+				var PostalCode = document.getElementById("zipcode");
+				PostalCode.addEventListener("input", validate);
+
+
+				function valHidTxt(){
+					if (document.getElementById("txt_hid").value == "") {
+						//document.getElementById("firstName").style.borderColor="red";
+						document.getElementById("mandatoryHidden").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryHidden").style.display = "none";
+						//document.getElementById("firstName").style.borderColor="black";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+
+				function blurHidTxt(){
+					if (document.getElementById("txt_hid").value == "") {
+						//document.getElementById("firstName").style.borderColor="red";
+						document.getElementById("mandatoryHidden").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryHidden").style.display = "none";
+						//document.getElementById("firstName").style.borderColor="black";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+
+				function valFirstName() {
+					var first = document.getElementById("firstName").value;
+					if (document.getElementById("firstName").value == "") {
+						//document.getElementById("firstName").style.borderColor="red";
+						document.getElementById("mandatoryFirstName").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryFirstName").style.display = "none";
+						//document.getElementById("firstName").style.borderColor="black";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+				function blurFirstName() {
+					var first = document.getElementById("firstName").value;
+					if (document.getElementById("firstName").value == "") {
+						//document.getElementById("firstName").style.borderBlock="red";
+						document.getElementById("mandatoryFirstName").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryFirstName").style.display = "none";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+
+				function valLastName() {
+					var first = document.getElementById("lastName").value;
+					if (document.getElementById("lastName").value == "") {
+						//document.getElementById("firstName").style.borderColor="red";
+						document.getElementById("mandatoryLastName").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryLastName").style.display = "none";
+						//document.getElementById("firstName").style.borderColor="black";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+				function blurLastName() {
+					var first = document.getElementById("lastName").value;
+					if (document.getElementById("lastName").value == "") {
+						//document.getElementById("firstName").style.borderBlock="red";
+						document.getElementById("mandatoryLastName").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryLastName").style.display = "none";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+
+				function valStreet1() {
+					var first = document.getElementById("streetAddress1").value;
+					if (document.getElementById("streetAddress1").value == "") {
+						//document.getElementById("firstName").style.borderColor="red";
+						document.getElementById("mandatorystreetAddress1").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatorystreetAddress1").style.display = "none";
+						//document.getElementById("firstName").style.borderColor="black";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+				function blurStreet1() {
+					var first = document.getElementById("streetAddress1").value;
+					if (document.getElementById("streetAddress1").value == "") {
+						//document.getElementById("firstName").style.borderBlock="red";
+						document.getElementById("mandatorystreetAddress1").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatorystreetAddress1").style.display = "none";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+				function valCity() {
+					var first = document.getElementById("city").value;
+					if (document.getElementById("city").value == "") {
+						//document.getElementById("firstName").style.borderColor="red";
+						//this.style.border = "2px solid red";
+						document.getElementById("mandatoryCity").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryCity").style.display = "none";
+						//document.getElementById("firstName").style.borderColor="black";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+				function blurCity() {
+					var first = document.getElementById("city").value;
+					if (document.getElementById("city").value == "") {
+						//this.style.border = "2px solid red";
+						document.getElementById("mandatoryCity").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryCity").style.display = "none";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+
+				function valState() {
+					var first = document.getElementById("state").value;
+					if (document.getElementById("state").value == "") {
+						//document.getElementById("firstName").style.borderColor="red";
+						document.getElementById("mandatoryState").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryState").style.display = "none";
+						//document.getElementById("firstName").style.borderColor="black";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+				function blurState() {
+					var first = document.getElementById("state").value;
+					if (document.getElementById("state").value == "") {
+						//document.getElementById("firstName").style.borderBlock="red";
+						document.getElementById("mandatoryState").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryState").style.display = "none";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+				function valComment() {
+					var first = document.getElementById("comments").value;
+					if (document.getElementById("comments").value == "") {
+						//document.getElementById("firstName").style.borderColor="red";
+						document.getElementById("mandatoryComment").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryState").style.display = "none";
+						//document.getElementById("firstName").style.borderColor="black";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+				function blurComment() {
+					var first = document.getElementById("comments").value;
+					if (document.getElementById("comments").value == "") {
+						//document.getElementById("firstName").style.borderBlock="red";
+						document.getElementById("mandatoryComment").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+
+					} else {
+						document.getElementById("mandatoryComment").style.display = "none";
+						document.getElementById("subBtn").disabled = false;
+					}
+				}
+
+
+				function validate(e) {
+					var value = e.target.value;
+					var type = this.id;
+					var em = "error_" + type
+
+					switch (type) {
+						case "emailId":
+							if (!value.trim().match(EmailRegExp)) {
+								document.getElementById(em).style.display = "block";
+								this.style.border = "2px solid red";
+								EmailValidation = false;
+								console.log(EmailValidation);
+							}
+							else {
+								document.getElementById(em).style.display = "none";
+								this.style.border = "";
+								EmailValidation = true;
+							}
+							break;
+						case "phoneNumber":
+							if (!value.trim().match(PhoneNumberRegExp)) {
+								document.getElementById(em).style.display = "block";
+								this.style.border = "2px solid red";
+								PhoneValidation = false;
+								console.log(PhoneValidation);
+							}
+							else {
+								document.getElementById(em).style.display = "none";
+								this.style.border = "";
+								PhoneValidation = true;
+							}
+							break;
+						case "zipcode":
+							if (!value.trim().match(PostalCodeRegExp)) {
+								document.getElementById(em).style.display = "block";
+								this.style.border = "2px solid red";
+								PostalCodeValidation = false;
+								console.log(PostalCodeValidation);
+							}
+							else {
+								document.getElementById(em).style.display = "none";
+								this.style.border = "";
+								PostalCodeValidation = true;
+							}
+							break;
+					}
+				}
+
+				function myFavBeverages() {
+					var bevDrpDwn = document.getElementById('beverages');
+
+					if (bevDrpDwn.value == "Hot Chocolate") {
+						document.getElementById("chk").style.display = "";
+						var x = document.getElementById("lbl_hid").innerHTML = "Hot Chocolate-Large";
+						document.getElementById("displayedMessage").innerHTML = "";
+						document.getElementById("lbl_hid").style.display = "";
+						console.log(x);
+
+					} else if (bevDrpDwn.value == "White Hot Chocolate") {
+						document.getElementById('chk').style.display = "";
+						document.getElementById('lbl_hid').innerHTML = "White Hot Chocolate-Large";
+						document.getElementById("displayedMessage").innerHTML = "";
+						document.getElementById("lbl_hid").style.display = "";
+					} else if (bevDrpDwn.value == "Cinnamon Dolce Latte") {
+						document.getElementById('chk').style.display = "";
+						document.getElementById('lbl_hid').innerHTML = "Cinnamon Dolce Latte-Large";
+						document.getElementById("displayedMessage").innerHTML = "";
+						document.getElementById("lbl_hid").style.display = "";
+					} else if (bevDrpDwn.value == "Pumpkin Spice Latte") {
+						document.getElementById('chk').style.display = "";
+						document.getElementById('lbl_hid').innerHTML = "Pumpkin Spice Latte-Large";
+						document.getElementById("displayedMessage").innerHTML = "";
+						document.getElementById("lbl_hid").style.display = "";
+					} else if (bevDrpDwn.value == "Caramel Macchiato") {
+						document.getElementById('chk').style.display = "";
+						document.getElementById('lbl_hid').innerHTML = "Caramel Macchiato-Large";
+						document.getElementById("displayedMessage").innerHTML = "";
+						document.getElementById("lbl_hid").style.display = "";
+					}
+
+
+				}
+
+				function textToDisplay(e) {
+					//displaying/hiding input txt after clicking on chckbox
+					var selectedOpt = document.getElementById('chk');
+
+					if(selectedOpt.checked == true && document.getElementById("txt_hid").value == ""){
+						document.getElementById("lbl_hid1").style.display = "block"
+						document.getElementById('txt_hid').style.display = 'block';
+						document.getElementById("mandatoryHidden").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+						
+					}
+					else if (selectedOpt.checked == true) {
+						document.getElementById("lbl_hid1").style.display = "block"
+						document.getElementById('txt_hid').style.display = 'block';
+						document.getElementById('txt_hid').value=" ";
+						document.getElementById("mandatoryHidden").style.display = "block";
+						document.getElementById("subBtn").disabled = true;
+						//document.getElementById("mandatoryHidden")
+						
+
+						
+					} 
+					//else if(selectedOpt.checked == true && document.getElementById("txt_hid").value == "") {
+					// 	document.getElementById("mandatoryHidden").style.display = "block";
+					// 	document.getElementById("subBtn").disabled = true;
+						
+					// }
+					 else if (selectedOpt.checked == false){
+						document.getElementById('txt_hid').style.display = 'none';
+						document.getElementById('txt_hid').innerHTML=" ";
+						document.getElementById("lbl_hid1").style.display = "none";
+						document.getElementById("mandatoryHidden").style.display = "none";
+						document.getElementById("subBtn").disabled = false;
+
+					}
+				}
+
+				function refreshForm() {
+					window.location.reload();
+				}
+				/***tableee**/
+				function loadTable() {
+
+					var title1 = document.getElementById("miss").value
+					var title2 = document.getElementById("mrs").value
+					var title3 = document.getElementById("mr").value
+					//var typeselected = document.getElementsByName("radio")
+					var getSelectedValue = document.querySelector('input[name="title"]:checked');
+					var firstName = document.getElementById("firstName").value;
+					var lastName = document.getElementById("lastName").value;			
+					var phoneNumber = document.getElementById("phoneNumber").value;
+					var zipCodee = document.getElementById("zipcode").value;
+					var mailid = document.getElementById("emailId").value;
+					var add1 = document.getElementById("streetAddress1").value;
+					var add2 = document.getElementById("streetAddress2").value;
+					var beverages = document.getElementById("beverages").value;
+					var sizeBev = document.getElementById("lbl_hid").innerHTML;
+					var com = document.getElementById("comments").value;
+					var custData = document.getElementById("txt_hid").value;
+					var howDidYouHear = [];
+                  
+					// pushing checkboxes in array
+					if (document.getElementById('facebook').checked == true) {
+						howDidYouHear.push("Facebook");
+					}
+					if (document.getElementById('yelp').checked == true) {
+						howDidYouHear.push("Yelp");
+					}
+					if (document.getElementById('google').checked == true) {
+						howDidYouHear.push("Google");
+					}
+					
+
+                    //create table dynamically
+
+					document.write("<h1>Form Submitted!</h1>");
+					document.write("<table border=1>");
+					document.write("<tr>");
+					document.write("<th>Title :</th>")
+					console.log(getSelectedValue.value);
+					document.write("<td>" + getSelectedValue.value + "</td>");
+
+					//document.write("<td>" + rating + "</td>");
+					document.write("<tr>");
+					document.write("<th>First Name: </th>");
+					document.write("<td>" + firstName + "</td>");
+					document.write("</tr>");
+
+					document.write("<tr>");
+					document.write("<th>Last Name:</th>");
+					document.write("<td>" + lastName + "</td>");
+					document.write("</tr>");
+
+					document.write("<tr>");
+					document.write("<th>EmailId:</th>");
+					document.write("<td>" + mailid + "</td>");
+					document.write("</tr>");
+
+					document.write("<tr>");
+					document.write("<th>Phone Number:</th>");
+					document.write("<td>" + phoneNumber + "</td>");
+					document.write("</tr>");
+
+					document.write("<tr>");
+					document.write("<th>Zip Code :</th>");
+					document.write("<td>" + zipCodee + "</td>");
+					document.write("</tr>");
+
+					document.write("<tr>");
+					document.write("<th>How did you hear:</th>");
+					document.write("<td>" + howDidYouHear + "</td>");
+					document.write("</tr>");
+
+					document.write("<tr>")
+					document.write("<th>Address Line1:</th>");
+					document.write("<td>" + add1 + "</td>");
+					document.write("</tr>");
+
+					document.write("<tr>")
+					document.write("<th>Address Line:</th>");
+					document.write("<td>" + add2 + "</td>");
+					document.write("</tr>");
+					document.write("<tr>");
+					document.write("<th>Comments:</th>");
+					document.write("<td>" + com + "</td>");
+					document.write("</tr>");
+
+					document.write("<tr>");
+					document.write("<th>Beverages:</th>");
+					document.write("<td>" + beverages + "</td>");
+					document.write("</tr>");
+
+					document.write("<tr>");
+					document.write("<th>Size:</th>");
+					document.write("<td>" + sizeBev + "</td>");
+					document.write("</tr>");
+
+					document.write("<tr>");
+					document.write("<th>Additional Customization: </th>");
+					document.write("<td>" + custData + "</td>");
+					document.write("</tr>");
+					document.write("</table>");
+
+					var bbtn = document.createElement("button");
+					bbtn.innerHTML = "Back to Form";
+					bbtn.onclick = function back() {
+						window.location.reload()
+					}
+
+					document.body.append(bbtn);
+
+
+
+				}
+			
+
+
+			</script>
+	</div>
+</body>
+
+</html>
