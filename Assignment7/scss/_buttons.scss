@@ -1,0 +1,31 @@
+$green:#545f8c;
+$light-green:#939db8;
+$light-color:rgb(178, 182, 207);
+$light-white:rgb(189, 183, 173);
+$black:rgb(10, 25, 50);
+$white:rgb(205, 209, 224);
+$border:.1rem solid $green;
+$box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+
+%btn{
+    display: inline-block;
+   margin-top: 1rem;
+   padding:1rem 3rem;
+   font-size: 1.8rem;
+   border:$border;
+   background: $light-green;
+   color:$green;
+   cursor: pointer;
+   $border:.1rem solid $green;
+   text-transform: capitalize;
+
+   &:hover{
+      background: $green;
+      color:$white;
+   }
+}
+
+.btn-primary{
+    @extend %btn;
+    background-color: lighten $green ;
+}
