@@ -1,0 +1,130 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #1A237E;
+}
+
+a {
+  color: #000 !important;
+}
+a:hover {
+   color: #1A237E !important;
+   text-decoration: none !important;
+}
+
+.cityName{
+  float: left !important;
+}
+
+.container,.card{
+  background-color: rgb(172, 210, 111) !important;
+}
+.container-fluid{
+  color: green;
+}
+.btn{
+  color: blue;
+
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+:root {
+  --primary-color: #1A237E;
+  --secondary-color: rgb(172, 210, 111);
+  --tertiary-color: green;
+  --quaternary-color: blue;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .App-logo {
+    animation: none;
+  }
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background-color: var(--secondary-color);
+}
+
+a {
+  color: var(--quaternary-color) !important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-color) !important;
+}
+
+.cityName {
+  float: left;
+}
+
+.container,
+.card {
+  background-color: var(--secondary-color) !important;
+}
+
+.container-fluid {
+  color: var(--tertiary-color);
+}
+
+.btn {
+  color: var(--quaternary-color);
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
